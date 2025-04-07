@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Single Page Portfolio Website">
+  <title>My Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    #about, #services, #portfolio, #contact {
+      background-color: white;
+      margin: 20px auto;
+      max-width: 1200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .card {
+      display: inline-block;
+      width: 30%;
+      padding: 20px;
+      background-color: #e9ecef;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container input, .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-container button:hover {
+      background-color: #575757;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Explore My Work and Get In Touch!</p>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Azeez Basit, a passionate Data Analyst with experience in SQL, Excel, Python, and Machine Learning. I love turning raw data into insightful reports that drive decision-making.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="card">
+      <h3>Data Analysis</h3>
+      <p>Turning raw data into actionable insights using SQL, Python, and more.</p>
+    </div>
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <p>Creating predictive models to uncover hidden patterns in data.</p>
+    </div>
+    <div class="card">
+      <h3>Data Visualization</h3>
+      <p>Building interactive dashboards to present data in a visual format.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>Here are a few of my recent projects:</p>
+    <div class="card">
+      <h3>HR Attrition Analysis</h3>
+      <img src="https://via.placeholder.com/300" alt="HR Attrition Project">
+      <p>Analysis of employee attrition using SQL for better decision-making.</p>
+    </div>
+    <div class="card">
+      <h3>Loan Data Analysis</h3>
+      <img src="https://via.placeholder.com/300" alt="Loan Data Project">
+      <p>Identifying trends in loan applications and predicting loan defaults.</p>
+    </div>
+    <div class="card">
+      <h3>Customer Churn Prediction</h3>
+      <img src="https://via.placeholder.com/300" alt="Churn Prediction Project">
+      <p>Predicting customer churn for improving retention rates using machine learning.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out with any questions or collaboration opportunities.</p>
+
+    <div class="form-container">
+      <form id="contact-form">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Smooth scrolling to sections
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Form submission and validation
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && message) {
+        alert('Thank you for your message, ' + name + '! We will get back to you shortly.');
+        // Reset the form
+        this.reset();
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+  </script>
+
+</body>
+</html>
